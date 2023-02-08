@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeadComponent } from './head/head.component';
 import { ShortAnswerComponent } from './short-answer/short-answer.component';
+import { LandComponent } from './land/land.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeadComponent,
     ShortAnswerComponent,
+    LandComponent,
   ],
   imports: [
     BrowserModule,
