@@ -1,1 +1,9 @@
-<p>signup works!</p>
+<div ng-app="myApp" ng-controller="signupController">
+    <form>
+      <input type="text" placeholder="username" ng-model="userName" required>
+      <input type="email" placeholder="email" ng-model="email" required>
+      <input type="password"placeholder="password" ng-model="password" required>
+      <button routerLink="/signup" class="reg">Signup</button><br><br>
+    </form>
+  </div>
+
