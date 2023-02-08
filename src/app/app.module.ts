@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeadComponent } from './head/head.component';
 import { ShortAnswerComponent } from './short-answer/short-answer.component';
 import { LandComponent } from './land/land.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { LandComponent } from './land/land.component';
     HeadComponent,
     ShortAnswerComponent,
     LandComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
