@@ -10,6 +10,7 @@ import { ShortAnswerComponent } from './short-answer/short-answer.component';
 import { LandComponent } from './land/land.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { CreateFormComponent } from './create-form/create-form.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { SignupComponent } from './signup/signup.component';
     LandComponent,
     LoginComponent,
     SignupComponent,
+    CreateFormComponent,
   ],
   imports: [
     BrowserModule,

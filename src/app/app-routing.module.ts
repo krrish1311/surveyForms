@@ -5,6 +5,7 @@ import { LandComponent } from './land/land.component';
 import { LoginComponent } from './login/login.component';
 import { ShortAnswerComponent } from './short-answer/short-answer.component';
 import { SignupComponent } from './signup/signup.component';
+import { CreateFormComponent } from './create-form/create-form.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,11 @@ const routes: Routes = [
     component: SignupComponent,
     path: 'signup'
   },
+  {
+    component: CreateFormComponent,
+    path: 'create-form'
+  },
+
 ];
 
 @NgModule({
