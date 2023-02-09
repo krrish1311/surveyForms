@@ -1,9 +1,6 @@
 import {Component} from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
-/**
- * @title Drag&Drop connected sorting group
- */
 @Component({
   selector: 'cdk-drag-drop-connected-sorting-group-example',
   templateUrl: 'create-form.component.html',
