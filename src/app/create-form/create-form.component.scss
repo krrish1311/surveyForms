@@ -1,5 +1,5 @@
 .example-container {
-  width: 400px;
+  width: 70%;
   max-width: 100%;
   margin: 0 25px 25px 0;
   display: inline-block;
@@ -27,6 +27,10 @@
   cursor: move;
   background: white;
   font-size: 14px;
+}
+
+#todo{
+  width: 150px;
 }
 
 .cdk-drag-preview {
