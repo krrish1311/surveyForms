@@ -1,1 +1,8 @@
-<p>login works!</p>
+<div ng-app="myApp" ng-controller="loginController">
+    <form>
+      <input type="email"  placeholder="email" ng-model="email" required><br><br>
+      <input type="password" placeholder="password" ng-model="password" required><br><br>
+    <button routerLink="/login" class="reg">Submit</button>
+
+    </form>
+  </div>
