@@ -1,4 +1,4 @@
-.example-container {
+.container {
   width: 70%;
   max-width: 100%;
   margin: 0 25px 25px 0;
@@ -6,7 +6,7 @@
   vertical-align: top;
 }
 
-.example-list {
+.componentList {
   border: solid 1px #ccc;
   min-height: 60px;
   background: white;
@@ -29,7 +29,7 @@
   font-size: 14px;
 }
 
-#todo{
+#formElements{
   width: 150px;
 }
 
@@ -53,6 +53,6 @@
   border: none;
 }
 
-.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+.componentList.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }

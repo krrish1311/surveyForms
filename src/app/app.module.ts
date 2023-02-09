@@ -11,6 +11,12 @@ import { LandComponent } from './land/land.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { CreateFormComponent } from './create-form/create-form.component';
+import { ShortAnsComponent } from './short-ans/short-ans.component';
+import { EmailComponent } from './email/email.component';
+import { NumberComponent } from './number/number.component';
+import { DateComponent } from './date/date.component';
+import { SingleCorrectComponent } from './single-correct/single-correct.component';
+import { MultipleCorrectComponent } from './multiple-correct/multiple-correct.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +27,12 @@ import { CreateFormComponent } from './create-form/create-form.component';
     LoginComponent,
     SignupComponent,
     CreateFormComponent,
+    ShortAnsComponent,
+    EmailComponent,
+    NumberComponent,
+    DateComponent,
+    SingleCorrectComponent,
+    MultipleCorrectComponent,
   ],
   imports: [
     BrowserModule,
