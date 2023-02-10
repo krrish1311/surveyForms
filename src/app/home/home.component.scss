@@ -1,0 +1,16 @@
+.contain {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .previousforms {
+    background-color: gray;
+    width: 50%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+}

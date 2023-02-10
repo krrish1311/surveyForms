@@ -6,19 +6,12 @@ import { LoginComponent } from './login/login.component';
 import { ShortAnswerComponent } from './short-answer/short-answer.component';
 import { SignupComponent } from './signup/signup.component';
 import { CreateFormComponent } from './create-form/create-form.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
     component: LandComponent,
     path: ''
-  },
-    {
-    component: ShortAnswerComponent,
-    path: 'short-answer'
-  },
-  {
-    component: HeadComponent,
-    path: 'head'
   },
   {
     component: LoginComponent,
@@ -32,7 +25,10 @@ const routes: Routes = [
     component: CreateFormComponent,
     path: 'create-form'
   },
-
+  {
+    component: HomeComponent,
+    path: 'home'
+  }
 ];
 
 @NgModule({

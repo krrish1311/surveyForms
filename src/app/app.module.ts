@@ -12,35 +12,40 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { CreateFormComponent } from './create-form/create-form.component';
 import { ShortAnsComponent } from './short-ans/short-ans.component';
-import { EmailComponent } from './email/email.component';
 import { NumberComponent } from './number/number.component';
 import { DateComponent } from './date/date.component';
 import { SingleCorrectComponent } from './single-correct/single-correct.component';
 import { MultipleCorrectComponent } from './multiple-correct/multiple-correct.component';
+import { HomeComponent } from './home/home.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { EmailComponent } from "./email/email.component";
+
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeadComponent,
-    ShortAnswerComponent,
-    LandComponent,
-    LoginComponent,
-    SignupComponent,
-    CreateFormComponent,
-    ShortAnsComponent,
-    EmailComponent,
-    NumberComponent,
-    DateComponent,
-    SingleCorrectComponent,
-    MultipleCorrectComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    DragDropModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeadComponent,
+        ShortAnswerComponent,
+        LandComponent,
+        LoginComponent,
+        SignupComponent,
+        CreateFormComponent,
+        ShortAnsComponent,
+        NumberComponent,
+        DateComponent,
+        SingleCorrectComponent,
+        MultipleCorrectComponent,
+        HomeComponent,
+        EmailComponent,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        DragDropModule,
+        MatFormFieldModule,
+    ]
 })
-export class AppModule { }
+export class AppModule {}

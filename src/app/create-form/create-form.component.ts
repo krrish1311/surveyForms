@@ -1,35 +1,39 @@
+// New code starts here
+
 import { Component } from '@angular/core';
 import {
   CdkDragDrop,
   copyArrayItem,
   moveItemInArray,
-  transferArrayItem,
 } from '@angular/cdk/drag-drop';
-import { HeadComponent } from '../head/head.component';
-import { ShortAnsComponent } from '../short-ans/short-ans.component';
-import { SingleCorrectComponent } from '../single-correct/single-correct.component';
-import { MultipleCorrectComponent } from '../multiple-correct/multiple-correct.component';
-import { DateComponent } from '../date/date.component';
-import { EmailComponent } from '../email/email.component';
-import { NumberComponent } from '../number/number.component';
 
+const formElementsMapping = {
+  Title: 'app-head',
+  'Short Answer': 'app-short-ans',
+  Number: 'app-number',
+  Email: 'app-email',
+  Date: 'app-date',
+  'Single Correct': 'app-single-correct',
+  'Multiple Correct': 'app-multiple-correct',
+};
 
 @Component({
-  selector: 'cdk-drag-drop-connected-sorting-group-example',
+  selector: 'app-create-form',
   templateUrl: 'create-form.component.html',
   styleUrls: ['create-form.component.scss'],
 })
-
 export class CreateFormComponent {
   formElements = [
-    HeadComponent,
-    ShortAnsComponent,
-    SingleCorrectComponent,
-    MultipleCorrectComponent,
-    DateComponent,
+    'Title',
+    'Short Answer',
+    'Number',
+    'Email',
+    'Date',
+    'Single Correct',
+    'Multiple Correct',
   ];
 
-  mainForm = [HeadComponent, ShortAnsComponent];
+  mainForm = ['Title'];
 
   drop(event: CdkDragDrop<any>) {
     if (event.previousContainer === event.container) {
@@ -42,12 +46,14 @@ export class CreateFormComponent {
       event.previousContainer.id === 'formElements' &&
       event.container.id === 'mainForm'
     ) {
+      const formElement = event.previousContainer.data[event.previousIndex];
       copyArrayItem(
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
         event.currentIndex
       );
+      event.container.data[event.currentIndex] = formElement;
     } else if (
       event.previousContainer.id === 'mainForm' &&
       event.container.id === 'formElements'

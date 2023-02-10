@@ -1,8 +1,8 @@
+
 <div cdkDropListGroup>
 
-
   <div class="container" id="formElements">
-    <h2>Form Elements</h2>
+    <h3>Form Elements</h3>
     <div
       cdkDropList
       [cdkDropListData]="formElements"
@@ -10,16 +10,14 @@
       id="formElements"
       (cdkDropListDropped)="drop($event)"
     >
-      <div class="example-box" *ngFor="let item of formElements" cdkDrag>
+      <div class="array-box-elements" *ngFor="let item of formElements" cdkDrag>
         {{ item }}
       </div>
     </div>
   </div>
 
-
   <div class="container" id="mainForm">
-    <h2>Form</h2>
-
+    <h3>Form <br> Layout</h3>
     <div
       cdkDropList
       [cdkDropListData]="mainForm"
@@ -27,11 +25,17 @@
       id="mainForm"
       (cdkDropListDropped)="drop($event)"
     >
-      <div class="example-box" *ngFor="let item of mainForm" cdkDrag>
-        {{ item }}
+      <div class="array-box-layout" *ngFor="let item of mainForm" cdkDrag>
+        <ng-container [ngSwitch]="item">
+          <app-head *ngSwitchCase="'Title'"></app-head>
+          <app-short-ans *ngSwitchCase="'Short Answer'"></app-short-ans>
+          <app-number *ngSwitchCase="'Number'"></app-number>
+          <app-email *ngSwitchCase="'Email'"></app-email>
+          <app-date *ngSwitchCase="'Date'"></app-date>
+          <app-single-correct *ngSwitchCase="'Single Correct'"></app-single-correct>
+          <app-multiple-correct *ngSwitchCase="'Multiple Correct'"></app-multiple-correct>
+        </ng-container>
       </div>
     </div>
   </div>
-
-
 </div>

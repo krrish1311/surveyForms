@@ -1,7 +1,6 @@
 .head{
-  background-color: #000000;
   margin: 0;
-  width: 100%;
+  width: auto;
   border-radius: 15px;
   padding: 10px;
   line-height: 1;
@@ -10,7 +9,7 @@
 .content{
   border: 2px dashed #ccc;
   box-sizing: border-box;
-  width: 100%;
+  width: auto;
   height: 10vh;
   padding: 15px;
   border-radius: 8px;
