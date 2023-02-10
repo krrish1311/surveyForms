@@ -1,6 +1,4 @@
-
 <div cdkDropListGroup>
-
   <div class="container" id="formElements">
     <h3>Form Elements</h3>
     <div
@@ -17,7 +15,10 @@
   </div>
 
   <div class="container" id="mainForm">
-    <h3>Form <br> Layout</h3>
+    <h3>
+      Form <br />
+      Layout
+    </h3>
     <div
       cdkDropList
       [cdkDropListData]="mainForm"
@@ -32,8 +33,12 @@
           <app-number *ngSwitchCase="'Number'"></app-number>
           <app-email *ngSwitchCase="'Email'"></app-email>
           <app-date *ngSwitchCase="'Date'"></app-date>
-          <app-single-correct *ngSwitchCase="'Single Correct'"></app-single-correct>
-          <app-multiple-correct *ngSwitchCase="'Multiple Correct'"></app-multiple-correct>
+          <app-single-correct
+            *ngSwitchCase="'Single Correct'"
+          ></app-single-correct>
+          <app-multiple-correct
+            *ngSwitchCase="'Multiple Correct'"
+          ></app-multiple-correct>
         </ng-container>
       </div>
     </div>

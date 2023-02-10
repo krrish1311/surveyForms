@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HeadComponent } from './head/head.component';
 import { LandComponent } from './land/land.component';
 import { LoginComponent } from './login/login.component';
-import { ShortAnswerComponent } from './short-answer/short-answer.component';
 import { SignupComponent } from './signup/signup.component';
 import { CreateFormComponent } from './create-form/create-form.component';
 import { HomeComponent } from './home/home.component';

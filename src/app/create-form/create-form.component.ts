@@ -33,7 +33,15 @@ export class CreateFormComponent {
     'Multiple Correct',
   ];
 
-  mainForm = ['Title'];
+  mainForm = [
+    'Title',
+    'Short Answer',
+    'Number',
+    'Email',
+    'Date',
+    'Single Correct',
+    'Multiple Correct',
+  ];
 
   drop(event: CdkDragDrop<any>) {
     if (event.previousContainer === event.container) {
