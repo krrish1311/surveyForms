@@ -48,19 +48,23 @@
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <mat-label>Conform Password</mat-label>
+        <mat-label>Confirm Password</mat-label>
         <input
           type="password"
           matInput
-          [formControl]="passwordFormControl"
+          [formControl]="confirmPasswordFormControl"
           [errorStateMatcher]="matcher"
           placeholder="Enter your password"
         />
-        <mat-hint>Conform Password Here</mat-hint>
-        <mat-error *ngIf="passwordFormControl.hasError('required')">
-          Password is <strong>required</strong>
-        </mat-error>
+        <mat-hint>Confirm Your Password</mat-hint>
         <mat-error
+          *ngIf="
+            !(passwordFormControl.value === confirmPasswordFormControl.value)
+          "
+        >
+          Password and Confirm Password shoud be <strong>same</strong>
+        </mat-error>
+                <mat-error
           *ngIf="
             passwordFormControl.hasError('minlength') &&
             !passwordFormControl.hasError('required')
@@ -70,7 +74,9 @@
         </mat-error>
       </mat-form-field>
 
-      <button routerLink="/login" class="Signup">Signup</button>
+      <button routerLink="/login" class="Signup" (click)="submit()">
+        Signup
+      </button>
     </form>
   </div>
 </div>

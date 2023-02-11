@@ -4,6 +4,7 @@ import {
   FormGroupDirective,
   NgForm,
   Validators,
+  FormGroup,
 } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 
@@ -22,6 +23,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   }
 }
 
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -32,8 +34,31 @@ export class SignupComponent {
     Validators.required,
     Validators.email,
   ]);
+  passwordFormControl = new FormControl('', [
+    Validators.required,
+    Validators.minLength(6),
+    Validators.maxLength(20),
+  ]);
 
-  passwordFormControl = new FormControl('', [Validators.required]);
+  confirmPasswordFormControl = new FormControl('', [
+    Validators.required,
+    Validators.minLength(6),
+    Validators.maxLength(6),
+  ]);
+
+  hasErrors: boolean = true;
 
   matcher = new MyErrorStateMatcher();
+
+  signupForm = new FormGroup({
+    email: this.emailFormControl,
+    password: this.passwordFormControl,
+    confirmPassword: this.confirmPasswordFormControl,
+  });
+
+  submit() {
+    console.log('email:', this.emailFormControl.value);
+    console.log('password:', this.passwordFormControl.value);
+    console.log('confirm password:', this.confirmPasswordFormControl.value);
+  }
 }
