@@ -69,4 +69,7 @@ export class CreateFormComponent {
       event.previousContainer.data.splice(event.previousIndex, 1);
     }
   }
+  fromSubmit() {
+    console.log(this.mainForm);
+  }
 }
