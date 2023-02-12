@@ -23,7 +23,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   }
 }
 
-
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -46,8 +45,6 @@ export class SignupComponent {
     Validators.maxLength(6),
   ]);
 
-  hasErrors: boolean = true;
-
   matcher = new MyErrorStateMatcher();
 
   signupForm = new FormGroup({
@@ -56,9 +53,8 @@ export class SignupComponent {
     confirmPassword: this.confirmPasswordFormControl,
   });
 
+
   submit() {
-    console.log('email:', this.emailFormControl.value);
-    console.log('password:', this.passwordFormControl.value);
-    console.log('confirm password:', this.confirmPasswordFormControl.value);
+    console.log(this.signupForm.value)
   }
 }

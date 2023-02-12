@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -19,4 +19,13 @@ export class LoginComponent {
       return control.invalid && control.touched;
     },
   };
+
+  loginForm = new FormGroup({
+    email: this.emailFormControl,
+    password: this.passwordFormControl,
+  });
+
+  login() {
+    console.log(this.loginForm.value)
+  }
 }
