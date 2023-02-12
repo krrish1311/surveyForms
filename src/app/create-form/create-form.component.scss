@@ -6,7 +6,7 @@
 
 #mainForm {
   margin-left: 90px;
-  width: 80%;
+  width: minmax(400px, 50%);
 }
 
 .container {
@@ -74,6 +74,15 @@ h3 {
   box-sizing: border-box;
   cursor: move;
   font-size: 14px;
+}
+
+button {
+  background-color: rgb(104, 85, 224);
+  border-radius: 3px;
+  color: white;
+}
+button:hover {
+  background-color: #251ee9ed;
 }
 
 .cdk-drag-preview {
