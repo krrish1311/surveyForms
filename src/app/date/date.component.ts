@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-date',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class DateComponent {
 
+  dateControl = new FormControl('');
+
+  getValue() {
+    console.log('Date: ', this.dateControl.value);
+    return this.dateControl.value;
+  }
 }

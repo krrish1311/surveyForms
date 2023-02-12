@@ -29,9 +29,16 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./number.component.scss'],
 })
 export class NumberComponent {
+  numberControl = new FormControl('');
+
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
   ]);
   matcher = new MyErrorStateMatcher();
+
+  getValue() {
+    console.log('Number: ', this.numberControl.value);
+    return this.numberControl.value;
+  }
 }

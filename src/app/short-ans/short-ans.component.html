@@ -1,11 +1,19 @@
-<form class="example-form">
+<form>
   <mat-form-field class="example-full-width">
     <mat-label>Question</mat-label>
-    <input matInput placeholder="How are you today?" value="">
+    <input
+      matInput
+      [formControl]="questionControl"
+      placeholder="Enter your question"
+    />
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
     <mat-label>Answer Here :)</mat-label>
-    <textarea matInput placeholder="I am feeling fantastic!"></textarea>
+    <textarea
+      matInput
+      [formControl]="answerControl"
+      placeholder="Enter your answer"
+    ></textarea>
   </mat-form-field>
 </form>

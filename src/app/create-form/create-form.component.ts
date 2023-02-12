@@ -1,5 +1,3 @@
-// New code starts here
-
 import { Component } from '@angular/core';
 import {
   CdkDragDrop,

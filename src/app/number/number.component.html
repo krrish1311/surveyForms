@@ -1,7 +1,7 @@
 <form class="example-form">
   <mat-form-field class="example-full-width">
     <mat-label>Number</mat-label>
-    <input type="number" matInput placeholder="5501">
+    <input type="number" [formControl]="numberControl" matInput placeholder="1234" />
     <mat-hint>Enter a Number</mat-hint>
   </mat-form-field>
 </form>

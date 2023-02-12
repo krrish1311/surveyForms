@@ -1,57 +1,19 @@
 import { Component } from '@angular/core';
-import { ThemePalette } from '@angular/material/core';
 
-export interface Task {
-  name: string;
-  completed: boolean;
-  color: ThemePalette;
-  subtasks?: Task[];
-}
-
-/**
- * @title Basic checkboxes
- */
 @Component({
   selector: 'app-multiple-correct',
   templateUrl: './multiple-correct.component.html',
   styleUrls: ['./multiple-correct.component.scss'],
 })
 export class MultipleCorrectComponent {
-  task: Task = {
-    name: 'Indeterminate',
-    completed: false,
-    color: 'primary',
-    subtasks: [
-      { name: 'Primary', completed: false, color: 'primary' },
-      { name: 'Accent', completed: false, color: 'accent' },
-      { name: 'Warn', completed: false, color: 'warn' },
-    ],
-  };
+  checkboxes = [false, false, false, false];
 
-  allComplete: boolean = false;
-
-  updateAllComplete() {
-    this.allComplete =
-      this.task.subtasks != null &&
-      this.task.subtasks.every((t) => t.completed);
+  onCheckboxChange(index: number) {
+    this.checkboxes[index - 1] = !this.checkboxes[index - 1];
   }
 
-  someComplete(): boolean {
-    if (this.task.subtasks == null) {
-      return false;
-    }
-    return (
-      this.task.subtasks.filter((t) => t.completed).length > 0 &&
-      !this.allComplete
-    );
-  }
-
-  setAll(completed: boolean) {
-    this.allComplete = completed;
-    if (this.task.subtasks == null) {
-      return;
-    }
-    this.task.subtasks.forEach((t) => (t.completed = completed));
+  getValue() {
+    console.log(this.checkboxes)
+    return this.checkboxes;
   }
 }
-
