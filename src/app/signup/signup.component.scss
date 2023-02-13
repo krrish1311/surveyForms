@@ -7,7 +7,7 @@
 
   .containerSmall {
     width: 45%;
-    height: 50vh;
+    height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -45,6 +45,9 @@
       cursor: pointer;
       &:hover {
         background-color: rgba(104, 85, 224, 1);
+      }
+      &:disabled{
+        background-color: rgba(103, 85, 224, 0.515) ;
       }
     }
   }

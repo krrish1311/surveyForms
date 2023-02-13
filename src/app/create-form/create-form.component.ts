@@ -12,13 +12,12 @@ import { DateComponent } from '../date/date.component';
 import { SingleCorrectComponent } from '../single-correct/single-correct.component';
 import { MultipleCorrectComponent } from '../multiple-correct/multiple-correct.component';
 
-
 const formElementsMapping = {
-  'Title': 'app-head',
+  Title: 'app-head',
   'Short Answer': 'app-short-ans',
-  'Number': 'app-number',
-  'Email': 'app-email',
-  'Date': 'app-date',
+  Number: 'app-number',
+  Email: 'app-email',
+  Date: 'app-date',
   'Single Correct': 'app-single-correct',
   'Multiple Correct': 'app-multiple-correct',
 };
@@ -34,9 +33,9 @@ export class CreateFormComponent {
     'Short Answer',
     'Number',
     'Email',
-    'Date',
-    'Single Correct',
-    'Multiple Correct',
+    // 'Date',
+    // 'Single Correct',
+    // 'Multiple Correct',
   ];
 
   mainForm = [
@@ -44,9 +43,6 @@ export class CreateFormComponent {
     'Short Answer',
     'Number',
     'Email',
-    'Date',
-    'Single Correct',
-    'Multiple Correct',
   ];
 
   drop(event: CdkDragDrop<any>) {
@@ -98,13 +94,61 @@ export class CreateFormComponent {
   multipleCorrectComponent!: MultipleCorrectComponent;
 
   onFormSubmit() {
-    console.log(this.mainForm);
-    this.headComponent.getValue();
-    this.shortAnsComponent.getValue();
-    this.numberComponent.getValue();
-    this.emailComponent.getValue();
-    this.dateComponent.getValue();
-    this.singleCorrectComponent.getValue();
-    this.multipleCorrectComponent.getValue();
+    const formData: any[] = [];
+    for (let i = 0; i < this.mainForm.length; i++) {
+      if (this.mainForm[i] in formElementsMapping) {
+        const key = this.mainForm[i] as keyof typeof formElementsMapping;
+        switch (key) {
+          case 'Title':
+            formData.push({
+              type: key,
+              data: this.headComponent.getValue(),
+            });
+            break;
+          case 'Short Answer':
+            formData.push({
+              type: key,
+              data: this.shortAnsComponent.getValue(),
+            });
+            break;
+          case 'Number':
+            formData.push({
+              type: key,
+              data: this.numberComponent.getValue(),
+            });
+            break;
+          case 'Email':
+            formData.push({
+              type: key,
+              data: this.emailComponent.getValue(),
+            });
+            break;
+          case 'Date':
+            formData.push({
+              type: key,
+              data: this.dateComponent.getValue(),
+            });
+            break;
+          case 'Single Correct':
+            formData.push({
+              type: key,
+              data: this.singleCorrectComponent.getValue(),
+            });
+            break;
+          case 'Multiple Correct':
+            formData.push({
+              type: key,
+              data: this.multipleCorrectComponent.getValue(),
+            });
+            break;
+          default:
+            break;
+        }
+      }
+    }
+
+    console.log(formData);
+    // Store formData in the database
+    
   }
 }

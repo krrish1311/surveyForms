@@ -1,6 +1,7 @@
 <div class="containerBig">
   <div class="containerSmall">
     <form class="form">
+
       <mat-form-field class="full-width">
         <mat-label>Email</mat-label>
         <input
@@ -45,7 +46,7 @@
           Password must be at least 6 characters long
         </mat-error>
       </mat-form-field>
-      <button routerLink="/home" (click)="login()" class="login">Login</button>
+      <button [disabled]="isDisabled()" routerLink="/home" (click)="login()" class="login">Login</button>
     </form>
   </div>
 </div>

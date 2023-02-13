@@ -19,7 +19,7 @@ export class MultipleCorrectComponent {
   @Output() valueEvent = new EventEmitter<void>();
 
   getValue() {
-    console.log(this.checkboxes);
+    console.log(`multiple correct: ${this.checkboxes}`);
     this.valueEvent.emit();
     return this.checkboxes;
   }

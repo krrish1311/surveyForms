@@ -33,12 +33,17 @@ export class EmailComponent {
     Validators.required,
     Validators.email,
   ]);
+  questionControl = new FormControl('');
 
   @Output() valueEvent = new EventEmitter<void>();
   matcher = new MyErrorStateMatcher();
 
   getValue() {
     this.valueEvent.emit();
-    return this.emailFormControl.value;
+    console.log('Email: ', this.emailFormControl.value);
+    return {
+      question: this.questionControl.value,
+      email: this.emailFormControl.value,
+    };
   }
 }

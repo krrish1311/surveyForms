@@ -25,7 +25,28 @@ export class LoginComponent {
     password: this.passwordFormControl,
   });
 
+  isDisabled() {
+    const email = this.loginForm.value.email;
+    const password = this.loginForm.value.password;
+
+    if (!email || !password) {
+      return true;
+    }
+
+    if (password.length < 6) {
+      return true;
+    }
+
+    const emailRegex =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!emailRegex.test(email)) {
+      return true;
+    }
+
+    return false;
+  }
+
   login() {
-    console.log(this.loginForm.value)
+    console.log(this.loginForm.value);
   }
 }

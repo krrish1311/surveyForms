@@ -32,6 +32,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class SignupComponent {
   constructor(public httpclient: HttpClient) {}
+
+  userNameFormControl = new FormControl();
+
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
@@ -51,26 +54,55 @@ export class SignupComponent {
   matcher = new MyErrorStateMatcher();
 
   signupForm = new FormGroup({
+    username: this.userNameFormControl,
     email: this.emailFormControl,
     password: this.passwordFormControl,
     confirmPassword: this.confirmPasswordFormControl,
   });
 
-  submit() {
-    console.log(this.signupForm.value);
+  isDisabled() {
+    const email = this.signupForm.value.email;
+    const password = this.signupForm.value.password;
+    const confirmPassword = this.signupForm.value.confirmPassword;
 
-    let headers1 = new HttpHeaders({
-      'content-Type': 'application/json',
-    });
-    let obj = {
-      username: 'admin12',
-      email_id: this.signupForm.value.email,
+    if (!email || !password || !confirmPassword) {
+      return true;
+    }
+
+    if (password !== confirmPassword) {
+      return true;
+    }
+
+    const emailRegex =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!emailRegex.test(email)) {
+      return true;
+    }
+
+    return false;
+  }
+
+  submit() {
+
+    // let headers1 = new HttpHeaders({
+    //   'content-Type': 'application/json',
+    // });
+    const obj = {
+      username: this.signupForm.value.username,
+      email: this.signupForm.value.email,
       password: this.signupForm.value.password,
     };
-    this.httpclient
-      .post('http://localhost:7600/reg', obj, { headers: headers1 })
-      .subscribe((response) => {
-        console.log(response);
-      });
+    console.log(obj);
+    // this.httpclient
+    //   .post('http://localhost:7600/reg', obj, { headers: headers1 })
+    //   .subscribe((response) => {
+    //     console.log(response);
+
+    //     if (response.st=== 'success') {
+    //       alert('Successfully Registered');
+    //     } else {
+    //       alert('Registration failed');
+    //     }
+    //   });
   }
 }

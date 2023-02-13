@@ -30,6 +30,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class NumberComponent {
   numberControl = new FormControl('');
+  questionControl = new FormControl('');
 
   emailFormControl = new FormControl('', [
     Validators.required,
@@ -41,6 +42,9 @@ export class NumberComponent {
 
   getValue() {
     console.log('Number: ', this.numberControl.value);
-    return this.numberControl.value;
+    return {
+      question: this.questionControl.value,
+      number: this.numberControl.value,
+    };
   }
 }

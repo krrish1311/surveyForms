@@ -20,8 +20,9 @@ export class HeadComponent {
         '.example-form .example-full-width textarea'
       ) as HTMLTextAreaElement
     ).value;
-    console.log(formTitle, formDescription);
     this.valueEvent.emit();
+    console.log(`Form Title: ${formTitle}`);
+    console.log(`Form Discription: ${formDescription}`);
     return { formTitle, formDescription };
   }
 }

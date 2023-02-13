@@ -9,6 +9,8 @@ import { FormControl } from '@angular/forms';
 export class DateComponent {
   dateControl = new FormControl('');
 
+  dateFormControl = new FormControl();
+
   @Output() valueEvent = new EventEmitter<void>();
 
   getValue() {
