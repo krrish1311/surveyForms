@@ -83,26 +83,11 @@ export class SignupComponent {
   }
 
   submit() {
-
-    // let headers1 = new HttpHeaders({
-    //   'content-Type': 'application/json',
-    // });
     const obj = {
       username: this.signupForm.value.username,
       email: this.signupForm.value.email,
       password: this.signupForm.value.password,
     };
     console.log(obj);
-    // this.httpclient
-    //   .post('http://localhost:7600/reg', obj, { headers: headers1 })
-    //   .subscribe((response) => {
-    //     console.log(response);
-
-    //     if (response.st=== 'success') {
-    //       alert('Successfully Registered');
-    //     } else {
-    //       alert('Registration failed');
-    //     }
-    //   });
   }
-}
+} 
