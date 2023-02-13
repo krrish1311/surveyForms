@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -9,6 +9,8 @@ import { FormControl } from '@angular/forms';
 export class ShortAnsComponent {
   questionControl = new FormControl('');
   answerControl = new FormControl('');
+
+  @Output() valueEvent = new EventEmitter<void>();
 
   getValue() {
     console.log('Question: ', this.questionControl.value);

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-head',
@@ -6,6 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./head.component.scss'],
 })
 export class HeadComponent {
+
+  @Output() valueEvent = new EventEmitter<void>();
+
   getValue() {
     const formTitle = (
       document.querySelector(
@@ -18,6 +21,7 @@ export class HeadComponent {
       ) as HTMLTextAreaElement
     ).value;
     console.log(formTitle, formDescription);
+    this.valueEvent.emit();
     return { formTitle, formDescription };
   }
 }

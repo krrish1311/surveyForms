@@ -1,5 +1,4 @@
-
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import {
   FormControl,
   FormGroupDirective,
@@ -29,11 +28,17 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   templateUrl: './email.component.html',
   styleUrls: ['./email.component.scss'],
 })
-
 export class EmailComponent {
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
   ]);
+
+  @Output() valueEvent = new EventEmitter<void>();
   matcher = new MyErrorStateMatcher();
+
+  getValue() {
+    this.valueEvent.emit();
+    return this.emailFormControl.value;
+  }
 }

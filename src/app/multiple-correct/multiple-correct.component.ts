@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-multiple-correct',
@@ -12,8 +12,11 @@ export class MultipleCorrectComponent {
     this.checkboxes[index - 1] = !this.checkboxes[index - 1];
   }
 
+  @Output() valueEvent = new EventEmitter<void>();
+
   getValue() {
-    console.log(this.checkboxes)
+    console.log(this.checkboxes);
+    this.valueEvent.emit();
     return this.checkboxes;
   }
 }
