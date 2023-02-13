@@ -11,6 +11,7 @@ import { EmailComponent } from '../email/email.component';
 import { DateComponent } from '../date/date.component';
 import { SingleCorrectComponent } from '../single-correct/single-correct.component';
 import { MultipleCorrectComponent } from '../multiple-correct/multiple-correct.component';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const formElementsMapping = {
   Title: 'app-head',
@@ -28,6 +29,8 @@ const formElementsMapping = {
   styleUrls: ['create-form.component.scss'],
 })
 export class CreateFormComponent {
+  constructor(public httpclient: HttpClient) {}
+
   formElements = [
     'Title',
     'Short Answer',
@@ -38,12 +41,7 @@ export class CreateFormComponent {
     // 'Multiple Correct',
   ];
 
-  mainForm = [
-    'Title',
-    'Short Answer',
-    'Number',
-    'Email',
-  ];
+  mainForm = ['Title', 'Short Answer', 'Number', 'Email'];
 
   drop(event: CdkDragDrop<any>) {
     if (event.previousContainer === event.container) {
@@ -147,8 +145,18 @@ export class CreateFormComponent {
       }
     }
 
+    let headers1 = new HttpHeaders({
+      'content-Type': 'application/json',
+    });
+
     console.log(formData);
     // Store formData in the database
-    
+
+    this.httpclient
+      .post('http://localhost:7600/create_form', formData, { headers: headers1 })
+      .subscribe((response) => {
+        console.log(response);
+      });
+
   }
 }

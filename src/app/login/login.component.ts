@@ -50,8 +50,8 @@ export class LoginComponent {
       'content-Type': 'application/json',
     });
     let obj = {
-      username: this.loginForm.value.username,
-      
+      username: this.loginForm.value.userName,
+
       password: this.loginForm.value.password,
     };
     this.httpclient
