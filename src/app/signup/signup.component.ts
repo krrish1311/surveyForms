@@ -8,6 +8,8 @@ import {
 } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -29,6 +31,12 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent {
+
+  constructor(
+    public httpclient:HttpClient
+  ){
+    
+  }
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
@@ -56,5 +64,18 @@ export class SignupComponent {
 
   submit() {
     console.log(this.signupForm.value)
+
+    let headers1=new HttpHeaders({
+      'content-Type': 'application/json'
+    })
+    let obj={
+      username:'admin12',
+      email_id:this.signupForm.value.email,
+      password:this.signupForm.value.password
+    }
+    this.httpclient.post("http://localhost:7600/reg",obj,{headers:headers1}).subscribe(response=>{
+      console.log(response)
+    })
+
   }
 }
