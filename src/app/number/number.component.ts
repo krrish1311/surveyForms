@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import {
   FormControl,
   FormGroupDirective,
@@ -36,6 +36,8 @@ export class NumberComponent {
     Validators.email,
   ]);
   matcher = new MyErrorStateMatcher();
+
+  @Output() valueEvent = new EventEmitter<void>();
 
   getValue() {
     console.log('Number: ', this.numberControl.value);

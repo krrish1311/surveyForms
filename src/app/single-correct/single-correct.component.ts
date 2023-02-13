@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 
@@ -9,8 +9,13 @@ import { FormControl } from '@angular/forms';
 })
 export class SingleCorrectComponent {
   selectedOption = new FormControl('');
+  questionControl = new FormControl('');
+
+  @Output() valueEvent = new EventEmitter<void>();
 
   getValue() {
+    this.valueEvent.emit();
     console.log(this.selectedOption.value);
+    return this.selectedOption.value;
   }
 }

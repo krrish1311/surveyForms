@@ -1,16 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import {
   CdkDragDrop,
   copyArrayItem,
   moveItemInArray,
 } from '@angular/cdk/drag-drop';
+import { HeadComponent } from '../head/head.component';
+import { ShortAnsComponent } from '../short-ans/short-ans.component';
+import { NumberComponent } from '../number/number.component';
+import { EmailComponent } from '../email/email.component';
+import { DateComponent } from '../date/date.component';
+import { SingleCorrectComponent } from '../single-correct/single-correct.component';
+import { MultipleCorrectComponent } from '../multiple-correct/multiple-correct.component';
+
 
 const formElementsMapping = {
-  Title: 'app-head',
+  'Title': 'app-head',
   'Short Answer': 'app-short-ans',
-  Number: 'app-number',
-  Email: 'app-email',
-  Date: 'app-date',
+  'Number': 'app-number',
+  'Email': 'app-email',
+  'Date': 'app-date',
   'Single Correct': 'app-single-correct',
   'Multiple Correct': 'app-multiple-correct',
 };
@@ -67,7 +75,36 @@ export class CreateFormComponent {
       event.previousContainer.data.splice(event.previousIndex, 1);
     }
   }
-  fromSubmit() {
+
+  @ViewChild(HeadComponent)
+  headComponent!: HeadComponent;
+
+  @ViewChild(ShortAnsComponent)
+  shortAnsComponent!: ShortAnsComponent;
+
+  @ViewChild(NumberComponent)
+  numberComponent!: NumberComponent;
+
+  @ViewChild(EmailComponent)
+  emailComponent!: EmailComponent;
+
+  @ViewChild(DateComponent)
+  dateComponent!: DateComponent;
+
+  @ViewChild(SingleCorrectComponent)
+  singleCorrectComponent!: SingleCorrectComponent;
+
+  @ViewChild(MultipleCorrectComponent)
+  multipleCorrectComponent!: MultipleCorrectComponent;
+
+  onFormSubmit() {
     console.log(this.mainForm);
+    this.headComponent.getValue();
+    this.shortAnsComponent.getValue();
+    this.numberComponent.getValue();
+    this.emailComponent.getValue();
+    this.dateComponent.getValue();
+    this.singleCorrectComponent.getValue();
+    this.multipleCorrectComponent.getValue();
   }
 }
