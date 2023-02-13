@@ -7,6 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+
   constructor(public httpclient: HttpClient) {}
   emailFormControl = new FormControl('', [
     Validators.required,
@@ -14,6 +15,8 @@ export class LoginComponent {
   ]);
 
   passwordFormControl = new FormControl('', [Validators.required]);
+  userNameFormControl = new FormControl();
+
 
   matcher = {
     isErrorState: (control: FormControl) => {
@@ -22,25 +25,19 @@ export class LoginComponent {
   };
 
   loginForm = new FormGroup({
-    email: this.emailFormControl,
+    userName: this.userNameFormControl,
     password: this.passwordFormControl,
   });
 
   isDisabled() {
-    const email = this.loginForm.value.email;
+    const userName = this.loginForm.value.userName;
     const password = this.loginForm.value.password;
 
-    if (!email || !password) {
+    if (!userName || !password) {
       return true;
     }
 
     if (password.length < 6) {
-      return true;
-    }
-
-    const emailRegex =
-      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (!emailRegex.test(email)) {
       return true;
     }
 
