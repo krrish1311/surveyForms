@@ -69,7 +69,7 @@ export class SignupComponent {
       'content-Type': 'application/json'
     })
     let obj={
-      username:'admin12',
+      username:'admin100',
       email_id:this.signupForm.value.email,
       password:this.signupForm.value.password
     }
