@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-multiple-correct',
@@ -7,6 +9,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class MultipleCorrectComponent {
   checkboxes = [false, false, false, false];
+
+  questionControl = new FormControl('');
 
   onCheckboxChange(index: number) {
     this.checkboxes[index - 1] = !this.checkboxes[index - 1];

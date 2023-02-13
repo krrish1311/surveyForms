@@ -9,6 +9,7 @@ import { FormControl } from '@angular/forms';
 })
 export class SingleCorrectComponent {
   selectedOption = new FormControl('');
+  questionControl = new FormControl('');
 
   @Output() valueEvent = new EventEmitter<void>();
 
