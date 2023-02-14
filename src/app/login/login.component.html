@@ -1,15 +1,14 @@
 <div class="containerBig">
   <div class="containerSmall">
     <form class="form">
-
       <mat-form-field class="full-width">
         <mat-label>Username</mat-label>
         <input
           matInput
-          [formControl]="userNameFormControl "
+          [formControl]="userNameFormControl"
           placeholder="Enter your Username"
-        /> </mat-form-field
-        >
+        />
+      </mat-form-field>
       <mat-form-field class="full-width">
         <mat-label>Password</mat-label>
         <input
@@ -34,7 +33,6 @@
       </mat-form-field>
       <button
         [disabled]="isDisabled()"
-        routerLink="/home"
         (click)="login()"
         class="login"
       >

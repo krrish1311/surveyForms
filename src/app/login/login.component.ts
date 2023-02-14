@@ -1,14 +1,20 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpErrorResponse,
+} from '@angular/common/http';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  constructor(public httpclient: HttpClient, private router: Router) {}
 
-  constructor(public httpclient: HttpClient) {}
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
@@ -16,7 +22,6 @@ export class LoginComponent {
 
   passwordFormControl = new FormControl('', [Validators.required]);
   userNameFormControl = new FormControl();
-
 
   matcher = {
     isErrorState: (control: FormControl) => {
@@ -46,18 +51,27 @@ export class LoginComponent {
 
   login() {
     console.log(this.loginForm.value);
-    let headers1 = new HttpHeaders({
-      'content-Type': 'application/json',
+    const headers1 = new HttpHeaders({
+      'Content-Type': 'application/json',
     });
-    let obj = {
+    const obj = {
       username: this.loginForm.value.userName,
-
       password: this.loginForm.value.password,
     };
     this.httpclient
       .post('http://localhost:7600/reg', obj, { headers: headers1 })
-      .subscribe((response) => {
-        console.log(response);
-      });
+      .subscribe(
+        (response) => {
+          console.log(response);
+          this.router.navigate(['/home']); // handle successful login case
+        },
+        (error: HttpErrorResponse) => {
+          if (error.status === 401) {
+            alert('Wrong credentials. Please try again.');
+          } else {
+            console.error(error);
+          }
+        }
+      );
   }
 }

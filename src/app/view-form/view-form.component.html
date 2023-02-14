@@ -1,22 +1,20 @@
-<form [formGroup]="form">
-  <ng-container *ngFor="let element of formElements">
-    <ng-container [ngSwitch]="element.type">
-      <div *ngSwitchCase="'Title'">
-        <h3>{{element.data.label}}</h3>
-      </div>
-      <div *ngSwitchCase="'Short Answer'">
-        <label>{{element.data.label}}:</label>
-        <input type="text" formControlName="{{element.data.name}}">
-      </div>
-      <div *ngSwitchCase="'Number'">
-        <label>{{element.data.label}}:</label>
-        <input type="number" formControlName="{{element.data.name}}">
-      </div>
-      <div *ngSwitchCase="'Email'">
-        <label>{{element.data.label}}:</label>
-        <input type="email" formControlName="{{element.data.name}}">
-      </div>
-    </ng-container>
+<!-- <div class="array-box-layout" *ngFor="let item of mainForm" cdkDrag>
+  <ng-container [ngSwitch]="item">
+    <app-head #headComponent *ngSwitchCase="'Title'"></app-head>
+    <app-short-ans
+      #shortAnsComponent
+      *ngSwitchCase="'Short Answer'"
+    ></app-short-ans>
+    <app-number #numberComponent *ngSwitchCase="'Number'"></app-number>
+    <app-email #emailComponent *ngSwitchCase="'Email'"></app-email>
+    <app-date #dateComponent *ngSwitchCase="'Date'"></app-date>
+    <app-single-correct
+      #singleCorrectComponent
+      *ngSwitchCase="'Single Correct'"
+    ></app-single-correct>
+    <app-multiple-correct
+      #multipleCorrectComponent
+      *ngSwitchCase="'Multiple Correct'"
+    ></app-multiple-correct>
   </ng-container>
-  <button type="submit">Submit</button>
-</form>
+</div> -->
