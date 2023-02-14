@@ -164,17 +164,10 @@ export class CreateFormComponent {
 
     
     
-    // const headers1 = new HttpHeaders().set(
-    //   "authorization",
-    //   JSON.parse(localStorage.getItem('currentUser') || '{}')   );
-
     console.log(formData);
-    // Store formData in the database
-
-  //  console.log(localStorage.getItem("currentuser"));
-  //  const currentuser =localStorage.getItem("currentuser")
+    
     this.httpclient
-      .post('http://localhost:7600/create_form', formData, { headers: headers1 })
+      .post('http://localhost:5000/form', formData, { headers: headers1 })
       .subscribe((response) => {
         console.log(response);
       });
