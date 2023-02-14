@@ -12,6 +12,7 @@ import { DateComponent } from '../date/date.component';
 import { SingleCorrectComponent } from '../single-correct/single-correct.component';
 import { MultipleCorrectComponent } from '../multiple-correct/multiple-correct.component';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Token } from '@angular/compiler';
 
 const formElementsMapping = {
   Title: 'app-head',
@@ -41,7 +42,7 @@ export class CreateFormComponent {
     // 'Multiple Correct',
   ];
 
-  mainForm = ['Title', 'Short Answer', 'Number', 'Email'];
+  mainForm = ['Title',  'Email'];
 
   drop(event: CdkDragDrop<any>) {
     if (event.previousContainer === event.container) {
@@ -144,14 +145,34 @@ export class CreateFormComponent {
         }
       }
     }
+    let token;
 
-    let headers1 = new HttpHeaders({
-      'content-Type': 'application/json',
-    });
+    const auth_token=localStorage.getItem("currentuser")
+    console.log(auth_token)
+    if(auth_token){
+      token= JSON.parse(auth_token)
+      console.log(token)
+      
+    }
+
+    const headers1 = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'authorization':"Bearer " +token
+  })
+      
+  
+
+    
+    
+    // const headers1 = new HttpHeaders().set(
+    //   "authorization",
+    //   JSON.parse(localStorage.getItem('currentUser') || '{}')   );
 
     console.log(formData);
     // Store formData in the database
 
+  //  console.log(localStorage.getItem("currentuser"));
+  //  const currentuser =localStorage.getItem("currentuser")
     this.httpclient
       .post('http://localhost:7600/create_form', formData, { headers: headers1 })
       .subscribe((response) => {

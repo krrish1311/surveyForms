@@ -59,15 +59,22 @@ export class LoginComponent {
       password: this.loginForm.value.password,
     };
     this.httpclient
-      .post('http://localhost:7600/reg', obj, { headers: headers1 })
+      .post('http://localhost:7600/login', obj, { headers: headers1 })
       .subscribe(
         (response) => {
           console.log(response);
-          this.router.navigate(['/home']); // handle successful login case
+          localStorage.setItem("currentuser",JSON.stringify(response))
+            alert('User Login Successfully.');
+            setTimeout(() => {
+              this.router.navigate(['/home']);
+            }, 500);// handle successful login case
         },
         (error: HttpErrorResponse) => {
           if (error.status === 401) {
             alert('Wrong credentials. Please try again.');
+            setTimeout(() => {
+              this.router.navigate(['/login']);
+            }, 500);
           } else {
             console.error(error);
           }
