@@ -1,0 +1,22 @@
+<form [formGroup]="form">
+  <ng-container *ngFor="let element of formElements">
+    <ng-container [ngSwitch]="element.type">
+      <div *ngSwitchCase="'Title'">
+        <h3>{{element.data.label}}</h3>
+      </div>
+      <div *ngSwitchCase="'Short Answer'">
+        <label>{{element.data.label}}:</label>
+        <input type="text" formControlName="{{element.data.name}}">
+      </div>
+      <div *ngSwitchCase="'Number'">
+        <label>{{element.data.label}}:</label>
+        <input type="number" formControlName="{{element.data.name}}">
+      </div>
+      <div *ngSwitchCase="'Email'">
+        <label>{{element.data.label}}:</label>
+        <input type="email" formControlName="{{element.data.name}}">
+      </div>
+    </ng-container>
+  </ng-container>
+  <button type="submit">Submit</button>
+</form>
